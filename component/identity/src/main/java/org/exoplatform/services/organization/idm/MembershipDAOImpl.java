@@ -159,8 +159,14 @@ public class MembershipDAOImpl extends AbstractDAOImpl implements MembershipHand
         }
 
         if (isAssociationMapped() && getAssociationMapping().equals(mt.getName())) {
-            if(!getIdentitySession().getRelationshipManager().isAssociatedByKeys(groupId, user.getUserName())) {
-                getIdentitySession().getRelationshipManager().associateUserByKeys(groupId, user.getUserName());
+            try {
+               if(!getIdentitySession().getRelationshipManager().isAssociatedByKeys(groupId, user.getUserName())) {
+                   getIdentitySession().getRelationshipManager().associateUserByKeys(groupId, user.getUserName());
+               }
+            } catch (Exception e) {
+                // TODO:
+                handleException("Identity operation error: ", e);
+
             }
         }
 
