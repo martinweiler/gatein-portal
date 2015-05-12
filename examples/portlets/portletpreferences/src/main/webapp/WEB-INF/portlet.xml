@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app
+	xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0">
+
+	<portlet>
+		<description>A portlet to test the preferences</description>
+		<portlet-name>PreferencesTestPortlet</portlet-name>
+		<display-name>PreferencesTestPortlet</display-name>
+		<portlet-class>
+			com.redhat.support.PreferencesTestPortlet
+		</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+<!-- 			<portlet-mode>EDIT</portlet-mode> -->
+		</supports>
+		<portlet-info>
+			<title>PreferencesTestPortlet</title>
+		</portlet-info>
+        <portlet-preferences>
+             <preference>
+                <name>color</name>
+                <value>red</value>
+<!--            	<read-only>true</read-only> -->
+            </preference>     
+        </portlet-preferences>			
+        <container-runtime-option>
+            <name>org.gatein.pc.remotable</name>
+            <value>true</value>
+        </container-runtime-option>
+    </portlet>
+</portlet-app>
